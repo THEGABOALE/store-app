@@ -18,7 +18,6 @@ return new class extends Migration
             $table->decimal('price', 8, 2);
             $table->integer('stock');
             $table->unsignedBigInteger('category_id');
-            /*Relación con la tabla categories*/
             $table->foreign('category_id')->references('id')->on('categories');
             $table->string('image')->nullable();
             $table->timestamps();

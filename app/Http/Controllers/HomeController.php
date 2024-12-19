@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Product;
 
 class HomeController extends Controller
 {
@@ -26,6 +27,8 @@ class HomeController extends Controller
     {
         $categories_count = Category::count();
         $categories = Category::latest()->take(4)->get();
-        return view('home', compact('categories_count', 'categories'));
+        $products_count = Product::count();
+        $products = Product::latest()->take(4)->get();
+        return view('home', compact('categories_count', 'categories', 'products_count', 'products'));
     }
 }
